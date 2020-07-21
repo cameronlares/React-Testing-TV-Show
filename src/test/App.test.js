@@ -611,14 +611,21 @@ const AppData = {
 
 
 test("Renders without errors", () => {
+  fetchShow.mockResolvedValueOnce(AppData);
+
     render(<App />);
   });
 
 test('Load Data ',  async ()=>{
+
+
     fetchShow.mockResolvedValueOnce(AppData);
+    render(<App />)
     
     await act( async ()=> {
+      fetchShow.mockResolvedValueOnce(AppData);   
        await render(<App />);
+
     });
 
     
